@@ -36,7 +36,7 @@ const UserManagement = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await api.get('/api/admin/users');
+      const response = await api.get('https://pensionbd-liza.onrender.com/api/admin/users');
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -50,7 +50,7 @@ const UserManagement = () => {
     setActionLoading(true);
     
     try {
-      await api.post('/api/admin/users', formData);
+      await api.post('https://pensionbd-liza.onrender.com/api/admin/users', formData);
       await fetchUsers();
       setShowCreateModal(false);
       setFormData({ name: '', email: '', password: '', role: 'manager', department: '', designation: '' });
@@ -66,7 +66,7 @@ const UserManagement = () => {
     setActionLoading(true);
     
     try {
-      await api.put(`/api/admin/users/${selectedUser._id}`, formData);
+      await api.put(`https://pensionbd-liza.onrender.com/api/admin/users/${selectedUser._id}`, formData);
       await fetchUsers();
       setShowEditModal(false);
       setSelectedUser(null);
@@ -82,7 +82,7 @@ const UserManagement = () => {
     setActionLoading(true);
     
     try {
-      await api.put(`/api/admin/users/${userId}/status`, { isActive: !isActive });
+      await api.put(`https://pensionbd-liza.onrender.com/api/admin/users/${userId}/status`, { isActive: !isActive });
       await fetchUsers();
     } catch (error) {
       console.error('Error toggling user status:', error);
@@ -99,7 +99,7 @@ const UserManagement = () => {
     setActionLoading(true);
     
     try {
-      await api.delete(`/api/admin/users/${userId}`);
+      await api.delete(`https://pensionbd-liza.onrender.com/api/admin/users/${userId}`);
       await fetchUsers();
     } catch (error) {
       console.error('Error deleting user:', error);

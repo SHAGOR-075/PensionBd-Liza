@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const response = await api.post('/api/pension-holder/register', userData);
+      const response = await api.post('https://pensionbd-liza.onrender.com/api/pension-holder/register', userData);
       const { token, user: userInfo } = response.data;
       
       localStorage.setItem('token', token);

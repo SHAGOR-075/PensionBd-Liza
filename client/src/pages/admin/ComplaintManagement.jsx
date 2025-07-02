@@ -33,7 +33,7 @@ const ComplaintManagement = () => {
 
   const fetchComplaints = async () => {
     try {
-      const response = await api.get('/api/admin/complaints');
+      const response = await api.get('https://pensionbd-liza.onrender.com/api/admin/complaints');
       setComplaints(response.data);
     } catch (error) {
       console.error('Error fetching complaints:', error);
@@ -45,7 +45,7 @@ const ComplaintManagement = () => {
   const handleAction = async (complaintId, action) => {
     setActionLoading(true);
     try {
-      await api.put(`/api/admin/complaints/${complaintId}/${action}`, actionData);
+      await api.put(`https://pensionbd-liza.onrender.com/api/admin/complaints/${complaintId}/${action}`, actionData);
       
       // Refresh complaints
       await fetchComplaints();

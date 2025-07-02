@@ -31,7 +31,7 @@ const ManagerDashboard = () => {
 
   const fetchApplications = async () => {
     try {
-      const response = await api.get('/api/manager/applications');
+      const response = await api.get('https://pensionbd-liza.onrender.com/api/manager/applications');
       setApplications(response.data);
       
       // Calculate stats including overdue applications

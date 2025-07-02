@@ -30,7 +30,7 @@ const ApplicationReview = () => {
 
   const fetchApplications = async () => {
     try {
-      const response = await api.get('/api/manager/applications');
+      const response = await api.get('https://pensionbd-liza.onrender.com/api/manager/applications');
       setApplications(response.data);
     } catch (error) {
       console.error('Error fetching applications:', error);
@@ -42,7 +42,7 @@ const ApplicationReview = () => {
   const handleAction = async (applicationId, action, comments = '') => {
     setActionLoading(true);
     try {
-      await api.put(`/api/manager/applications/${applicationId}/${action}`, {
+      await api.put(`https://pensionbd-liza.onrender.com/api/manager/applications/${applicationId}/${action}`, {
         comments
       });
       

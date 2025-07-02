@@ -35,9 +35,9 @@ const AdminDashboard = () => {
   const fetchDashboardData = async () => {
     try {
       const [statsResponse, complaintsResponse, managersResponse] = await Promise.all([
-        api.get('/api/admin/stats'),
-        api.get('/api/admin/recent-complaints'),
-        api.get('/api/admin/flagged-managers')
+        api.get('https://pensionbd-liza.onrender.com/api/admin/stats'),
+        api.get('https://pensionbd-liza.onrender.com/api/admin/recent-complaints'),
+        api.get('https://pensionbd-liza.onrender.com/api/admin/flagged-managers')
       ]);
 
       setStats(statsResponse.data);

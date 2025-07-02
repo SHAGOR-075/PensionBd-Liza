@@ -113,7 +113,8 @@ app.use(limiter);
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: process.env.CLIENT_URL || 'https://pensionbd.netlify.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   credentials: true
 }));
 
@@ -162,5 +163,11 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
+
+setInterval(() => {
+  fetch('https://pensionbd-liza.onrender.com/api/health') // or any route that exists
+    .then(() => console.log('Self ping sent to keep server awake'))
+    .catch((err) => console.log('Ping failed:', err.message))
+}, 5 * 60 * 1000) // every 5 minutes
 
 export default app;

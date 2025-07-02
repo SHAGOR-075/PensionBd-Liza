@@ -24,7 +24,7 @@ const ApplicationStatus = () => {
 
   const fetchApplications = async () => {
     try {
-      const response = await api.get('/api/pension-holder/applications');
+      const response = await api.get('https://pensionbd-liza.onrender.com/api/pension-holder/applications');
       setApplications(response.data);
     } catch (error) {
       console.error('Error fetching applications:', error);
@@ -86,7 +86,7 @@ const ApplicationStatus = () => {
 
   const downloadPDF = async (applicationId) => {
     try {
-      const response = await api.get(`/api/pension-holder/applications/${applicationId}/pdf`, {
+      const response = await api.get(`https://pensionbd-liza.onrender.com/api/pension-holder/applications/${applicationId}/pdf`, {
         responseType: 'blob'
       });
       

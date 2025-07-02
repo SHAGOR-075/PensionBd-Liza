@@ -30,7 +30,7 @@ const PensionHolderDashboard = () => {
 
   const fetchApplications = async () => {
     try {
-      const response = await api.get('/api/pension-holder/applications');
+      const response = await api.get('https://pensionbd-liza.onrender.com/api/pension-holder/applications');
       setApplications(response.data);
       
       // Calculate stats
